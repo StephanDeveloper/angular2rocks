@@ -9,22 +9,21 @@ if (typeof __decorate !== "function") __decorate = function (decorators, target,
 if (typeof __metadata !== "function") __metadata = function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-/// <reference path="typings/angular2/angular2.d.ts" />
 var angular2_1 = require('angular2/angular2');
-var Angular2RocksController = (function () {
-    function Angular2RocksController() {
-        this.name = "angular 2 rocks";
+var UserListController = (function () {
+    function UserListController() {
+        this.users = ["stephan", "anna", "nordi", "lisa"];
     }
-    Angular2RocksController = __decorate([
+    UserListController = __decorate([
         angular2_1.Component({
-            // <angular2rocks-app></angular2rocks-app>
-            selector: "angular2rocks-app"
+            selector: "userList"
         }),
         angular2_1.View({
-            template: "<h1>Whats your name? My name is {{name}}</h1>"
+            template: "\n        <p>User Lists</p>\n        <p>User:</p>\n        <ul>\n            <li *ng-for=\"#user of users\">{{user}}</li>\n        </ul>\n    ",
+            directives: [angular2_1.NgFor]
         }), 
         __metadata('design:paramtypes', [])
-    ], Angular2RocksController);
-    return Angular2RocksController;
+    ], UserListController);
+    return UserListController;
 })();
-angular2_1.bootstrap(Angular2RocksController);
+angular2_1.bootstrap(UserListController);
