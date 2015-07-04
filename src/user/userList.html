@@ -1,0 +1,17 @@
+<section id="userList">
+  <p>User Lists</p>
+
+  <p>User:</p>
+  <ul>
+    <li *ng-for="#user of userStore.users">
+      <span>{{user.username}}</span>
+      <button class="destroy" (click)="removeUser(user)">Remove</button>
+    </li>
+  </ul>
+  <input id="new-user"
+         placeholder="Tell me a new user"
+         autofocus
+         #user
+         (keyup)="doneTyping($event, user)">
+  <button (click)="addUser(user.value)">Add User</button>
+</section>
